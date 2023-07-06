@@ -99,6 +99,9 @@ img {
     display: block;
     margin-top: -15px;
   }
+  .content {
+    margin: 25% auto;
+  }
 } 
 
 main {
@@ -165,20 +168,23 @@ main {
   top: 0;
   height: 100%;
   width: 100%;
+  /* */
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
 
 .content {
-  margin: 5% auto;
+  margin: auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
   border-radius: 10px;
-  overflow: hidden;
+  overflow: hidden; 
   position: relative;
+  /* */
+  top: 20px;
   color: #fff;
   padding-top: 10px;
 }
@@ -190,10 +196,11 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 15px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  margin-top: 2px;
 }
 input {
   padding: 8px;
@@ -226,6 +233,40 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
+/* */
+.formData > span {
+  font-size: 13px;
+  font-weight: normal;
+  }
+  .radio-container > span {
+    display: flex;
+  }
+  .checkbox-container > span {
+    display: flex;
+    margin-bottom: 5px;
+  }
+  .succes {
+    color: #279e7a;
+  }
+  .error {
+    color: #FF0000;
+  }
+  .border-danger {
+    border: 2px solid #fe142f;
+   }
+   .border-succes {
+    border: 2px solid #279e7a;
+   }
+
+  .validForm {
+    display: none;
+    text-align: center;
+    flex-direction: column;
+    height: 65vh;
+  }
+  .validForm > p {
+    margin: auto;
+  }
 /* 
 input[data-error]::after {
     content: attr(data-error);
@@ -405,7 +446,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  min-height: 50vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -517,6 +558,7 @@ footer {
   }
 }
 
+
 @keyframes modalopen {
   from {
     opacity: 0;
@@ -526,4 +568,3 @@ footer {
     opacity: 1;
   }
 }
-

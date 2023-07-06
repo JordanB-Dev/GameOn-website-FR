@@ -41,6 +41,7 @@ modalClose.addEventListener('click', () => {
 
 const errorDisplay = (tag, message, valid) => {
   const span = document.querySelector('.' + tag + '-container > span')
+  const first = document.getElementById('first')
 
   if (!valid) {
     span.classList.add('error')
@@ -53,68 +54,93 @@ const errorDisplay = (tag, message, valid) => {
 }
 
 const firstChecker = (value) => {
+  const border = document.getElementById('first')
+
   if (value.length < 2 || value.length > 20) {
     errorDisplay(
       'first',
       'Veuillez entrer 2 caractères ou plus pour le champ prénom.'
     )
+    border.classList.add('border-danger')
     firstName = null
   } else if (!value.match(regexText)) {
     errorDisplay(
       'first',
       'Le prénom ne doit pas contenir de caractères spéciaux'
     )
+    border.classList.add('border-danger')
     firstName = null
   } else {
     errorDisplay('first', 'Champ valide', true)
+    border.classList.remove('border-danger')
+    border.classList.add('border-succes')
     firstName = value
   }
 }
 
 const lastChecker = (value) => {
+  const border = document.getElementById('last')
+
   if (value.length < 2 || value.length > 20) {
     errorDisplay(
       'last',
       'Veuillez entrer 2 caractères ou plus pour le champ du nom.'
     )
+    border.classList.add('border-danger')
     lastName = null
   } else if (!value.match(regexText)) {
     errorDisplay('last', 'Le nom ne doit pas contenir de caractères spéciaux')
+    border.classList.add('border-danger')
     lastName = null
   } else {
     errorDisplay('last', 'Champ valide', true)
+    border.classList.remove('border-danger')
+    border.classList.add('border-succes')
     lastName = value
   }
 }
 
 const emailChecker = (value) => {
+  const border = document.getElementById('email')
+
   if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
     errorDisplay('email', " L'adresse électronique n'est pas valide")
+    border.classList.add('border-danger')
     email = null
   } else {
     errorDisplay('email', 'Champ valide', true)
+    border.classList.remove('border-danger')
+    border.classList.add('border-succes')
     email = value
   }
 }
 
 const birthdateChecker = (value) => {
+  const border = document.getElementById('birthdate')
+
   if (!value) {
     errorDisplay('birthdate', 'Vous devez entrer votre date de naissance.')
+    border.classList.add('border-danger')
     birthdate = null
-    console.log(value)
   } else {
     errorDisplay('birthdate', 'Champ valide', true)
+    border.classList.remove('border-danger')
+    border.classList.add('border-succes')
     birthdate = value
-    console.log(value)
   }
 }
 
 const quantityChecker = (value) => {
+  const border = document.getElementById('quantity')
+
   if (value.length < 1 || value.length > 2) {
     errorDisplay('quantity', 'Merci d`indiquer le nombre de tournois.')
+    border.classList.add('border-danger')
     quantity = null
   } else {
     errorDisplay('quantity', 'Champ valide', true)
+    border.classList.remove('border-danger')
+    border.classList.add('border-succes')
     quantity = value
   }
 }
@@ -123,11 +149,9 @@ const locationChecker = (value) => {
   if (!value) {
     errorDisplay('radio', 'Vous devez choisir une ville.')
     locations = null
-    console.log(value)
   } else {
     errorDisplay('radio', 'Champ valide', true)
     locations = value
-    console.log(value)
   }
 }
 
@@ -141,7 +165,6 @@ const boxChecker = (value) => {
   } else {
     errorDisplay('checkbox', 'Champ valide', true)
     checkBox = value
-    console.log(value)
   }
 }
 
