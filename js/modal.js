@@ -8,10 +8,14 @@ function editNav() {
 }
 
 // DOM Elements
+const form = document.querySelector('form')
 const modalbg = document.querySelector('.bground')
 const modalBtn = document.querySelectorAll('.modal-btn')
 const formData = document.querySelectorAll('.formData')
 const modalClose = document.querySelector('.close')
+const validForm = document.querySelector('.validForm')
+const validMsg = document.getElementById('validMsg')
+const btnThanks = document.getElementById('btnValid')
 
 const inputs = document.querySelectorAll(
   'input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="number"], input[type="checkbox"], input[type="radio"]'
@@ -196,4 +200,45 @@ inputs.forEach((input) => {
         nul
     }
   })
+})
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+})
+
+const thanks = () => {
+  form.style.display = 'none'
+  validForm.style.display = 'flex'
+  validMsg.style.display = 'flex'
+  validMsg.innerHTML = 'Merci ! Votre réservation a été reçue.'
+}
+
+const validate = () => {
+  if (
+    firstName &&
+    lastName &&
+    email &&
+    birthdate &&
+    quantity &&
+    locations &&
+    checkBox
+  ) {
+    const data = {
+      firstName,
+      lastName,
+      email,
+      birthdate,
+      quantity,
+      locations,
+      checkBox,
+    }
+    console.log(data)
+    thanks()
+  } else {
+    alert('veuillez remplir correctement les champs')
+  }
+}
+
+btnThanks.addEventListener('click', () => {
+  window.location.reload()
 })
