@@ -45,7 +45,6 @@ modalClose.addEventListener('click', () => {
 
 const errorDisplay = (tag, message, valid) => {
   const span = document.querySelector('.' + tag + '-container > span')
-  const first = document.getElementById('first')
 
   if (!valid) {
     span.classList.add('error')
