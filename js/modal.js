@@ -136,9 +136,15 @@ const birthdateChecker = (value) => {
 const quantityChecker = (value) => {
   const border = document.getElementById('quantity')
 
-  if (value.length < 1 || value.length > 2) {
+  if (value.length < 1) {
     errorDisplay('quantity', 'Merci d`indiquer le nombre de tournois.')
     border.classList.add('border-danger')
+    border.classList.remove('border-succes')
+    quantity = null
+  } else if (value.length > 2) {
+    errorDisplay('quantity', 'Nous n`avons pas organisé autant de tournois !')
+    border.classList.add('border-danger')
+    border.classList.remove('border-succes')
     quantity = null
   } else {
     errorDisplay('quantity', 'Champ valide', true)
