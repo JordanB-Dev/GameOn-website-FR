@@ -144,7 +144,7 @@ const birthdateChecker = (value) => {
 const quantityChecker = (value) => {
   const border = document.getElementById('quantity')
 
-  if (!value.match(/^\d+$/) || value.length < 1) {
+  if (!value.match(/^\d+$/)) {
     errorDisplay('quantity', 'Merci d`indiquer le nombre de tournois.')
     addError(border)
     quantity = null
