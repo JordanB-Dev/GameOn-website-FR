@@ -128,7 +128,9 @@ const emailChecker = (value) => {
 const birthdateChecker = (value) => {
   const border = document.getElementById('birthdate')
 
-  if (!value) {
+  if (
+    !value.match(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/)
+  ) {
     errorDisplay('birthdate', 'Vous devez entrer votre date de naissance.')
     addError(border)
     birthdate = null
@@ -142,7 +144,7 @@ const birthdateChecker = (value) => {
 const quantityChecker = (value) => {
   const border = document.getElementById('quantity')
 
-  if (value.length < 1) {
+  if (!value.match(/^\d+$/) || value.length < 1) {
     errorDisplay('quantity', 'Merci d`indiquer le nombre de tournois.')
     addError(border)
     quantity = null
