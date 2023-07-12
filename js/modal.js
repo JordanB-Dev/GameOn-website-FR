@@ -17,10 +17,12 @@ const validForm = document.querySelector('.validForm')
 const validMsg = document.getElementById('validMsg')
 const btnThanks = document.getElementById('btnValid')
 
+// Selects the form inputs
 const inputs = document.querySelectorAll(
   'input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="number"], input[type="checkbox"], input[type="radio"]'
 )
 
+// Variable function
 let firstName,
   lastName,
   email,
@@ -39,10 +41,12 @@ function launchModal() {
   modalbg.style.display = 'block'
 }
 
+// Close modal form
 modalClose.addEventListener('click', () => {
   modalbg.style.display = 'none'
 })
 
+// Function display error
 const errorDisplay = (tag, message, valid) => {
   const span = document.querySelector('.' + tag + '-container > span')
 
@@ -56,16 +60,19 @@ const errorDisplay = (tag, message, valid) => {
   }
 }
 
+// Function add border input error
 const addError = (border) => {
   border.classList.add('border-danger')
   border.classList.remove('border-succes')
 }
 
+// Function add border input succes
 const addSucces = (border) => {
   border.classList.remove('border-danger')
   border.classList.add('border-succes')
 }
 
+// Function controler input first
 const firstChecker = (value) => {
   const border = document.getElementById('first')
 
@@ -90,6 +97,7 @@ const firstChecker = (value) => {
   }
 }
 
+// Function controler input last
 const lastChecker = (value) => {
   const border = document.getElementById('last')
 
@@ -111,6 +119,7 @@ const lastChecker = (value) => {
   }
 }
 
+// Function controler input email
 const emailChecker = (value) => {
   const border = document.getElementById('email')
 
@@ -125,6 +134,7 @@ const emailChecker = (value) => {
   }
 }
 
+// Function controler input birthdate
 const birthdateChecker = (value) => {
   const border = document.getElementById('birthdate')
 
@@ -141,6 +151,7 @@ const birthdateChecker = (value) => {
   }
 }
 
+// Function controler input quantity
 const quantityChecker = (value) => {
   const border = document.getElementById('quantity')
 
@@ -159,6 +170,7 @@ const quantityChecker = (value) => {
   }
 }
 
+// Function controler input location
 const locationChecker = (value) => {
   if (!value) {
     errorDisplay('radio', 'Vous devez choisir une ville.')
@@ -169,6 +181,7 @@ const locationChecker = (value) => {
   }
 }
 
+// Function controler input condition
 const boxChecker = (value) => {
   if (value !== true) {
     errorDisplay(
@@ -182,6 +195,7 @@ const boxChecker = (value) => {
   }
 }
 
+// Trigger function when typing in an input
 inputs.forEach((input) => {
   input.addEventListener('input', (e) => {
     switch (e.target.name) {
@@ -216,6 +230,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault()
 })
 
+// Function display modal thanks
 const thanks = () => {
   form.style.display = 'none'
   validForm.style.display = 'flex'
@@ -223,6 +238,7 @@ const thanks = () => {
   validMsg.innerHTML = 'Merci ! Votre réservation a été reçue.'
 }
 
+// Function validate form
 const validate = () => {
   if (
     firstName &&
