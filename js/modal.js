@@ -226,6 +226,15 @@ inputs.forEach((input) => {
   })
 })
 
+// KeyCode Escade
+const keyCodeEscape = (e) => {
+  if (e.keyCode === 27) {
+    modalbg.style.display = 'none'
+  }
+}
+
+document.addEventListener('keydown', keyCodeEscape)
+
 form.addEventListener('submit', (e) => {
   e.preventDefault()
 })
