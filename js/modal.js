@@ -22,7 +22,7 @@ const inputs = document.querySelectorAll(
   'input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="number"], input[type="checkbox"], input[type="radio"]'
 )
 
-// Variable function
+// Variable function.
 let firstName,
   lastName,
   email,
